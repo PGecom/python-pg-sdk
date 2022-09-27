@@ -21,23 +21,23 @@ $ pip install pgrwpy
 
 You need to setup your key and secret using the following:
 
-To work in production mode you need to specify your production userID & secretKey along with a production_mode True boolean flag
+To work in production mode you need to specify your production PG_USER_ID & PG_SECRET_KEY along with a production_mode True boolean flag
 
 ```py
 import pgrwpy
 
-client = pgrwpy.Client(auth=(userID, secretKey),
+client = pgrwpy.Client(auth=(PG_USER_ID, PG_SECRET_KEY),
                          production_mode=True)
 ```
 
 or
 
-To work in sandbox mode you need to specify your sandbox userID & secretKey keys along with a False boolean flag or you could just omit the production_mode flag since it defaults to False if not specified
+To work in sandbox mode you need to specify your sandbox PG_USER_ID & PG_SECRET_KEY keys along with a False boolean flag or you could just omit the production_mode flag since it defaults to False if not specified
 
 ```py
 import pgrwpy
 
-client = pgrwpy.Client(auth=(API_KEY, API_SECRET),
+client = pgrwpy.Client(auth=(PG_USER_ID, PG_SECRET_KEY),
                          production_mode=False)
 ```
 
@@ -68,7 +68,8 @@ data = {
     "errorUrl": "https://example.com"
 }
 
-client.Payment.moncash(data)
+payment = client.Payment.moncash(data)
+payment['redirectUrl'] #the redirect moncash link
 ```
 
 Did you get a **HTTP 201** response, if yes then you are all set for the next step.

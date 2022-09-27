@@ -21,7 +21,7 @@ setup(
     author_email="stanleycastin19@gmail.com",
     license="MIT",
     project_urls={
-        'Documentation': 'https://github.com/PGecom/python-pg-sdk/README.md',
+        'Documentation': 'https://github.com/PGecom/python-pg-sdk/blob/main/README.md',
         'Source': 'https://github.com/PGecom/python-pg-sdk',
     },
     install_requires=["requests"],
