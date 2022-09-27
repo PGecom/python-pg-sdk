@@ -1,0 +1,18 @@
+[pgrwpy]
+name = "pgrwpy"
+version = "0.1.1"
+authors = [
+  { name="Stanley Castin", email="stanleycastin19@gmail.com" },
+]
+description = "PG Rewards python SDK"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[pgrwpy.urls]
+"Homepage" = "https://github.com/ninjaroot-509/python-pg-sdk"
+"Bug Tracker" = "https://github.com/ninjaroot-509/python-pg-sdk/issues"
