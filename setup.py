@@ -9,7 +9,7 @@ def fetch_long_description():
         with open(path.join(this_directory, 'README.md'), encoding='utf-8') as readme_file:
             return readme_file.read()
     except FileNotFoundError:
-        return 'See https://github.com/ninjaroot-509/python-pg-sdk'
+        return 'See https://github.com/PGecom/python-pg-sdk'
 
 setup(
     name="pgrwpy",
@@ -21,8 +21,8 @@ setup(
     author_email="stanleycastin19@gmail.com",
     license="MIT",
     project_urls={
-        'Documentation': 'https://github.com/ninjaroot-509/python-pg-sdk/README.md',
-        'Source': 'https://github.com/ninjaroot-509/python-pg-sdk',
+        'Documentation': 'https://github.com/PGecom/python-pg-sdk/README.md',
+        'Source': 'https://github.com/PGecom/python-pg-sdk',
     },
     install_requires=["requests"],
     extras_require={

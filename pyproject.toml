@@ -14,5 +14,5 @@ classifiers = [
 ]
 
 [pgrwpy.urls]
-"Homepage" = "https://github.com/ninjaroot-509/python-pg-sdk"
-"Bug Tracker" = "https://github.com/ninjaroot-509/python-pg-sdk/issues"
+"Homepage" = "https://github.com/PGecom/python-pg-sdk"
+"Bug Tracker" = "https://github.com/PGecom/python-pg-sdk/issues"
