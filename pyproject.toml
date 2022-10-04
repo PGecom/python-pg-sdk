@@ -1,6 +1,6 @@
 [pgrwpy]
 name = "pgrwpy"
-version = "0.1.1"
+version = "0.1.4"
 authors = [
   { name="Stanley Castin", email="stanleycastin19@gmail.com" },
 ]

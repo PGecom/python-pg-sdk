@@ -69,7 +69,7 @@ data = {
 }
 
 payment = client.Payment.moncash(data)
-payment['redirectUrl'] #the redirect moncash link
+print(payment['redirectUrl']) #the redirect moncash link
 ```
 
 Did you get a **HTTP 201** response, if yes then you are all set for the next step.
@@ -87,7 +87,8 @@ Now that you have created a payment, the next step is to implement polling to ge
 ### Fetch a particular Moncash payment details
 
 ```py
-client.Payment.get_payment_details("<orderId>")
+res = client.Payment.get_payment_details("<orderId>")
+print(res) # 200: OK
 ```
 
 For details of all the request and response parameters , check our [PG API Documentation guide](https://docs.pgecom.com/api-endpoint/mon-cash/retrieve-an-order-id)
@@ -96,10 +97,132 @@ In case of a pending for Payment, the status in the response will change to **PE
 
 <hr>
 
+### Rewards Schema
+
+You can use send rewards as a way to recharge a user's account. The funds will automatically be available on their virtual or physical card. Following are the important parameters that you can provide for this method:
+
+| Field   | Required | Type    | Description                                  |
+| ------- | -------- | ------- | -------------------------------------------- |
+| email   | Yes      | string  | Recipient email                              |
+| amount  | Yes      | number  | Amount for the recipient                     |
+| prepaid | Yes      | boolean | User created via your platform, default true |
+
+### Send rewards
+
+```py
+data = {
+    "email": "info@pgecom.com",
+    "amount": 10,
+    "prepaid": False,
+}
+res = client.Reward.send(data)
+print(res) # 200: OK
+```
+
+For details of all the request and response parameters , check our [PG API Documentation guide](https://docs.pgecom.com/api-endpoint/send-rewards/send-rewards)
+Did you get a **HTTP 201** response, if yes then you are all set for the next step.
+
+<hr>
+
+### Card Schema
+
+In order to create a card, you will need to send a request to us with the following parameters:
+
+| Field          | Required | Type    | Description                                                                                                                                    |
+| -------------- | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| fullName       | Yes      | number  | Recipient that needs to be on the card                                                                                                         |
+| amount         | Yes      | string  | Available mount to spend with the card                                                                                                         |
+| email          | Yes      | string  | Email of the card recipient                                                                                                                    |
+| billingAddress | Yes      | object  | Recipient address on the card. The country is required inside billingAddress                                                                   |
+| physical       | Yes      | boolean | If set to true, then card shipped to the provided address - only shipping for physical USA                                                     |
+| person         | Yes      | string  | prepaid/user - user is a registered user on the platform, and prepaid is just temporary prepaid card with a limited amount and limited feature |
+
+The billing address object reference above
+
+| Field       | Required | Type   | Description              |
+| ----------- | -------- | ------ | ------------------------ |
+| line1       | Yes      | string | recipient street address |
+| city        | Yes      | string | recipient city           |
+| country     | Yes      | string | recipient country        |
+| state       | Yes      | string | recipient state          |
+| postal_code | Yes      | number | recipient postal code    |
+
+For details of all the request and response parameters , check our [PG API Documentation guide](https://docs.pgecom.com/api-endpoint/card/card-schema)
+
+```py
+data = {
+    "fullName": "Stanley Castin",
+    "amount": 5,
+    "email": "stanley@ninja.root",
+    "billingAddress": {
+        "line1": "9700 Medlock Bridge Road",
+        "city": "John Creeks",
+        "country": "US",
+        "state": "WA",
+        "postal_code": "90098"
+    },
+    "physical": False,
+    "person": "prepaid" # prepaid | user
+}
+
+res = client.Card.create(data)
+print(res) # 200: OK
+```
+
+Did you get a **HTTP 201** response, if yes then you are all set for the next step.
+
+<hr>
+
+### Retrieve a single card
+
+Now that you have created a card, the next step is to implement polling to get Card Details. We recommend a 4-5 second interval between requests. Following are the important parameters that you can provide for this method:
+
+| Field        | Required | Type   | Description           |
+| ------------ | -------- | ------ | --------------------- |
+| cardId       | Yes      | string | the actual card id    |
+| cardHolderId | Yes      | string | The owner of the card |
+
+### Fetch a particular Card details
+
+```py
+res = client.Card.get_card_details("<cardId>", "<cardHolderId>")
+print(res) # 200: OK
+```
+
+For details of all the request and response parameters , check our [PG API Documentation guide](https://docs.pgecom.com/api-endpoint/card/retrieve-a-single-card)
+On successful payment, the status in the response will change to **COMPLETED**
+In case of a pending for Payment, the status in the response will change to **PENDING**
+
+<hr>
+
+### List cards
+
+Now that you have created a card, the next step is to implement polling to get Card Details. We recommend a 4-5 second interval between requests. Following are the important parameters that you can provide for this method:
+
+| Field        | Required | Type   | Description           |
+| ------------ | -------- | ------ | --------------------- |
+| cardHolderId | Yes      | string | The owner of the card |
+
+### Fetch all Cards
+
+```py
+res = client.Card.get_all_cards("<cardHolderId>")
+print(res) # 200: OK
+```
+
+For details of all the request and response parameters , check our [PG API Documentation guide](https://docs.pgecom.com/api-endpoint/card/list-cards)
+On successful payment, the status in the response will change to **COMPLETED**
+In case of a pending for Payment, the status in the response will change to **PENDING**
+
+<hr>
+
 ### Task | workflow
 
-- [x] Moncash
-- [x] Payment details
-- [ ] Card
+- [x] Payment with Moncash
+- [x] Payment Detail
+- [x] Send Rewards
+- [x] Create Card
+- [x] Card Detail
+- [x] List Cards
 
 <hr>

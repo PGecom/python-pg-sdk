@@ -6,7 +6,7 @@ import pkg_resources
 from pkg_resources import DistributionNotFound
 
 from types import ModuleType
-from .constants import URL, HTTP_STATUS_CODE
+from .constants import URL, HTTP_STATUS_CODE, ERROR_CODE
 
 from . import resources
 from .constants.api_list import API_NAMES
@@ -85,8 +85,7 @@ class Client:
         userID = self.auth[0]
         secretKey = self.auth[1]
         if not userID or not secretKey:
-            raise ValueError("\x1b[31m MISSING REQUEST PARAMS"
-                             " \x1b[0m for userID and secretKey")
+            raise ValueError("MISSING REQUEST PARAMS for userID and secretKey")
         if self._check_token_exists():
             return self.token_res
         payload = json.dumps({
@@ -94,15 +93,14 @@ class Client:
             "secretKey": secretKey
         })
         url = self.base_url + URL.TOKEN
-        try:
-            response = requests.request("POST", url, headers={
-                'Content-Type': 'application/json;charset=UTF-8'
-            }, data=payload)
-            self.token_current_time = datetime.datetime.now()
-            self.token_res = response.json()
-            return response.json()
-        except Exception as e:
-            raise ValueError("\x1b[31m ERROR REQUEST", e)
+        response = requests.request("POST", url, headers={
+            'Content-Type': 'application/json;charset=UTF-8'
+        }, data=payload)
+        if not 'token' in response:
+            raise ValueError(ERROR_CODE.INCORECTKEY)
+        self.token_current_time = datetime.datetime.now()
+        self.token_res = response.json()
+        return response.json()
 
     def request(self, method, path, auth_token, **options):
         """
@@ -119,7 +117,7 @@ class Client:
             'Authorization': 'Bearer ' + auth_token,
             'Content-Type': 'application/json;charset=UTF-8'
         }, data=payload)
-        print(response.text)
+        # print(response.text)
         if ((response.status_code >= HTTP_STATUS_CODE.OK) and
                 (response.status_code < HTTP_STATUS_CODE.REDIRECT)):
             return response.json()

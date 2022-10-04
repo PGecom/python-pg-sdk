@@ -13,7 +13,7 @@ def fetch_long_description():
 
 setup(
     name="pgrwpy",
-    version="0.1.1",
+    version="0.1.4",
     description="PG Rewards python SDK",
     long_description=fetch_long_description(),
     long_description_content_type='text/markdown',

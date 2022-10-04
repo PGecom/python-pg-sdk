@@ -10,20 +10,15 @@ class Payment(Resource):
     def moncash(self, data={}, **kwargs):
         url = URL.MONCASH
         if "referenceId" not in data:
-            raise ValueError("\x1b[31m MISSING REQUEST PARAMS "
-                             "\x1b[0m for referenceId")
+            raise ValueError("MISSING REQUEST PARAMS for referenceId")
         if "successUrl" not in data:
-            raise ValueError("\x1b[31m MISSING REQUEST PARAMS "
-                             "\x1b[0m for successUrl")
+            raise ValueError("MISSING REQUEST PARAMS for successUrl")
         if "errorUrl" not in data:
-            raise ValueError("\x1b[31m MISSING REQUEST PARAMS "
-                             "\x1b[0m for errorUrl")
+            raise ValueError("MISSING REQUEST PARAMS for errorUrl")
         if "amount" not in data:
-            raise ValueError("\x1b[31m MISSING REQUEST PARAMS "
-                             "\x1b[0m for amount")
+            raise ValueError("MISSING REQUEST PARAMS for amount")
         if type(data["amount"]) != int:
-            raise ValueError("\x1b[31m Amount should be of type integer"
-                             " \x1b[0m")
+            raise ValueError("Amount should be of type integer")
         body = {
             "gdes": data["amount"],
             "userID": self.client.auth[0],
@@ -36,6 +31,5 @@ class Payment(Resource):
     def get_payment_details(self, orderId, **kwargs):
         url = "{}{}".format(URL.ORDER, orderId)
         if orderId is None:
-            raise ValueError("\x1b[31m MISSING REQUEST PARAMS"
-                             " \x1b[0m for orderId")
+            raise ValueError("MISSING REQUEST PARAMS for orderId")
         return self.fetch(None, url, None, api_id=API_NAMES.GET_PAYMENT, **kwargs)

@@ -6,4 +6,5 @@ class URL(object):
     CARD = "card/"
     TOKEN = "token"
     ORDER = "order/"
+    REWARD = "balance/sendmoney"
     
