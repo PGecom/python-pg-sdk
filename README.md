@@ -14,7 +14,7 @@
   Have a question or need some help?: <br>
   <a href="https://pgecom.com">Website</a>
   <span> | </span>
-  <a href="info@pgecom.com">Email</a>
+  <a href="mailto:info@pgecom.com">Email</a>
   <span> | </span>
   <a href="http://help.pgecom.com">Help</a>
 </div>
