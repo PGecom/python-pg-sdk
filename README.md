@@ -190,8 +190,6 @@ print(res) # 200: OK
 ```
 
 For details of all the request and response parameters , check our [PG API Documentation guide](https://docs.pgecom.com/api-endpoint/card/retrieve-a-single-card)
-On successful payment, the status in the response will change to **COMPLETED**
-In case of a pending for Payment, the status in the response will change to **PENDING**
 
 <hr>
 
@@ -211,8 +209,6 @@ print(res) # 200: OK
 ```
 
 For details of all the request and response parameters , check our [PG API Documentation guide](https://docs.pgecom.com/api-endpoint/card/list-cards)
-On successful payment, the status in the response will change to **COMPLETED**
-In case of a pending for Payment, the status in the response will change to **PENDING**
 
 <hr>
 
