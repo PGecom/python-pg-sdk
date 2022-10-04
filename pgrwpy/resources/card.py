@@ -67,7 +67,7 @@ class Card(Resource):
         return self.fetch(None, url, None, api_id=API_NAMES.GET_CARD_DETAIL, **kwargs)
 
     def get_all_cards(self, cardHolderId, **kwargs):
-        url = "{}?cardHolderId={}".format(URL.CARD, cardHolderId)
+        url = "{}/all?cardHolderId={}".format(URL.CARD, cardHolderId)
         if cardHolderId is None:
             raise ValueError("MISSING REQUESTS PARAMS for cardHolderId")
         return self.fetch(None, url, None, api_id=API_NAMES.GET_ALL_CARD, **kwargs)
