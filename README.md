@@ -195,7 +195,7 @@ For details of all the request and response parameters , check our [PG API Docum
 
 ### List cards
 
-Now that you have created a card, the next step is to implement polling to get Card Details. We recommend a 4-5 second interval between requests. Following are the important parameters that you can provide for this method:
+the next step is to implement polling to get all Cards. We recommend a 4-5 second interval between requests. Following are the important parameters that you can provide for this method:
 
 | Field        | Required | Type   | Description           |
 | ------------ | -------- | ------ | --------------------- |
