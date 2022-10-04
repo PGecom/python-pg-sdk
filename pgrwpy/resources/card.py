@@ -42,7 +42,6 @@ class Card(Resource):
             "amount": data["amount"],
             "email": data["email"],
             "isPrepaid":  data["prepaid"],
-
             "fullName": data["fullName"],
             "amount": data["amount"],
             "email": data["email"],
