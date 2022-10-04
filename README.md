@@ -1,7 +1,47 @@
-# PG Rewards SDK - Python
+![PG Rewards - API helps you create your virtual or physical and start spending online](https://uploads-ssl.webflow.com/632a265ac6a9500ac9e49d72/632bae11d162d0b07979e791_Pg%20Rewards%20Logo-01.png)
 
-So you are a developer and will start accepting payments with moncash. The PG Rewards Payments SDK is the easiest way to complete the integration in record time. With the PG Rewards Payment SDK, you can create a payment process through moncash to meet the unique needs of your projects.
+<div align="center">
+  <h1>PG Rewards SDK - Python</h1>
+</div>
 
+<div align="center">
+  <strong>The PG Rewards API SDK Python helps you create your virtual or physical and start spending online</strong>
+</div>
+
+<br>
+
+<div align="center">
+  Have a question or need some help?: <br>
+  <a href="https://pgecom.com">Website</a>
+  <span> | </span>
+  <a href="info@pgecom.com">Email</a>
+  <span> | </span>
+  <a href="http://help.pgecom.com">Help</a>
+</div>
+
+<div align="center">
+  So you are a developer and will start accepting payments with moncash. The PG Rewards Payments SDK is the easiest way to complete the integration in record time. With the PG Rewards Payment SDK, you can create a payment process through moncash to meet the unique needs of your projects.
+</div>
+
+## Table of Contents
+
+- [Python Django Example](#python-django-example)
+- [Getting an API Key](#getting-an-api-key)
+- [Payment with Moncash](#create-a-paymet-with-mon-cash)
+- [Payment Detail](#get-payment-details)
+- [Send Rewards](#send-rewards)
+- [Create Card](#card-schema)
+- [Card Detail](#fetch-a-particular-card-details)
+- [List Cards](#fetch-all-cards)
+
+# Python Django Example
+```sh
+$ cd example
+$ virtualenv env
+$ source env/bin/activate
+$ pip install -r requirements.txt
+$ python manage.py runserver
+```
 ## Getting an API Key
 
 ![](https://3711139374-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-MNoNIWRBSpPI3RWl7Qz-1703796690%2Fuploads%2FJtcX4LUHzKUrW3CcgJtI%2FDeveloper%20Credentials.png?alt=media&token=3bb83868-6cd5-40f5-9be3-129f08f93cb7)
